@@ -1,0 +1,17 @@
+class Solution {
+    public int kthSmallest(int[][] matrix, int k) {
+        
+        Comparator<Integer> comparator = (o1, o2) -> o2-o1;
+
+        PriorityQueue<Integer> p =new PriorityQueue(k,comparator);
+        for(int []nums: matrix)
+            for(int num: nums)
+            {
+                p.add(num);
+                if(p.size()>k)
+                    p.poll();
+            }
+        
+        return p.poll();
+    }
+}
