@@ -21,6 +21,6 @@ E: happy.coding.family@gmail.com
 
 LinkedIn Profile:- https://www.linkedin.com/in/aniruddha-m-agrawal/
 
-LeetCode Profile:- https://leetcode.com/aniruddha_agrawal/ (3 star)
+LeetCode Profile:- https://leetcode.com/anii_agrawal/ (3 star)
 
 YouTube Channel Link: https://www.youtube.com/channel/UCEhbYWFqKPGBzeYXFHHwLNA
