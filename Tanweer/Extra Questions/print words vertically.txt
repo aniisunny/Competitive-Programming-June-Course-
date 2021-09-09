@@ -1,0 +1,44 @@
+class Solution
+{
+public:
+    vector<string> printVertically(string s)
+    {
+        stringstream ss(s) , pp(s);
+        string word;
+        
+        int maxlen = 0 , count = 0 ;
+        
+        while(ss >> word)
+        {
+            int len = word.length();
+            maxlen = max(maxlen , len);
+        }
+        
+        vector<string> ans(maxlen);
+        
+        while(pp >> word)
+        {
+            int i = 0 ;
+            
+            while(i < word.length())
+            {
+                int currlen = ans[i].length();
+                
+                int spaces = abs(currlen - count);
+                
+                while(spaces--)
+                {
+                    ans[i].push_back(' ');
+                }
+                
+                ans[i].push_back(word[i]);
+                
+                i++;
+            }
+            
+            count++;
+        }
+        
+        return ans;
+    }
+};
