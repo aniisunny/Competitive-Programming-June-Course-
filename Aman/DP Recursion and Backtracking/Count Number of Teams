@@ -1,0 +1,28 @@
+class Solution {
+public:
+    int numTeams(vector<int>& rating) {
+        int n=rating.size(),res=0;
+        for (int i=0; i<n;++i) {
+            int ls=0, lg=0,rs=0,rg=0;
+            for (int j=0;j<n;++j) {
+                if(j<i)
+                {
+                    if(rating[j]<rating[i]) 
+                        ls++;
+                    else 
+                        lg++;
+                    
+                } 
+                else if(j>i) 
+                {
+                    if(rating[j]<rating[i]) 
+                        rs++;
+                    else 
+                        rg++;
+                }
+            }
+            res+=ls*rg+lg*rs;
+        }
+        return res;
+    }
+};
