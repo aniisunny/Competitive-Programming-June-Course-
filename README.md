@@ -3,7 +3,7 @@ It is complete course on Competitive Programming & discussed optimal solution fo
 Topic Discussed: Array, String, Linked List, Stack, Queue, Recursion, Backtracking, Dynamic Programming, Graphs, Trees and Trie Data Structure 
 Target Companies: Google, Amazon, Microsoft, Flipkart, Facebook, Walmart 
 
-After complete this course I will select top 1 students and give some goodies or prize..
+After complete this course I will select top 1 students and give some goodies or prize...
 
 
 
