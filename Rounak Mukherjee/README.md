@@ -5,7 +5,7 @@ College: Burdwan Institute of Management and Computer Science (Burdwan Universit
 
 Education: BCA 3rd-Year
 
-Goal: Uber, Salesforce, Adobe, Walmart and other product base companies through Off-Campus.  
+Goal: Product base companies Internship and Full-Time through Off-Campus.  
 
 LeetCode Profile: https://leetcode.com/mukherjeerounak10/
 
