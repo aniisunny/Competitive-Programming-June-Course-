@@ -1,11 +1,17 @@
- Name:  Rounak Mukherjee
- 
- College: BIMS (Burdwan University)
- 
- Goal: Internship and Full-time offers in Product-base companies as SDE through off-campus
- 
- Year: 3rd Year
- 
- Leetcode: https://leetcode.com/mukherjeerounak10/
- 
- LinkedIN: https://www.linkedin.com/in/rounak-mukherjee/
+
+## Rounak Mukherjee
+
+College: Burdwan Institute of Management and Computer Science (Burdwan University)
+
+Education: BCA 3rd-Year
+
+Goal: Uber, Salesforce, Adobe, Walmart and other product base companies through Off-Campus.  
+
+LeetCode Profile: https://leetcode.com/mukherjeerounak10/
+
+LinkedIn Profile: https://www.linkedin.com/in/rounak-mukherjee/
+
+
+
+
+  
