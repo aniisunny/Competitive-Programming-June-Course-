@@ -4,7 +4,7 @@
  
  Year:  3rd
  
- Target Company: Mnc based companies offering role for Full stack Web Development like Amazon, Google, Microsoft, Oracle, Netflix etc..
+ Target Company: Mnc based companies offering role for Full stack mobile Development using flutter and java Development  like Amazon, Google, Microsoft, Oracle, Netflix etc..
  
  Leetcode Profile: https://leetcode.com/abhishekjha07/
      
