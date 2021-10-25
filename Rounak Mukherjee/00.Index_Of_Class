@@ -1,13 +1,38 @@
 Arrays & String:-
     
-     Day 1: 344. Reverse String
+     Day 1: 
+            344. Reverse String
             1979. Find Greatest Common Divisor of Array
             1572. Matrix Diagonal Sum
             1464. Maximum Product of Two Elements in an Array
              540. Single Element in a Sorted Array
              189. Rotate Array
               73. Set Matrix Zeroes
-     Day 2: 1. Two sum Problem
+     Day 2: 
+            1. Two sum Problem
             167. Two sum problem sorted array
             66. Plus one
             49. Group Anagrams
+            
+     Day 3: 
+        283. Move Zeroes
+        27. Remove Element
+        387. First Unique Character in a String
+        242. Valid Anagram
+        48. Rotate Image
+        54. Spiral Matrix
+        59. Spiral Matrix II
+        53. Maximum Subarray    
+        
+    Day 4: 
+            75. Sort Colors
+            5. Longest Palindromic Substring
+            1456. Maximum Number of Vowels in a Substring of Given Length
+            1247. Minimum Swaps to Make Strings Equal
+     
+    Day 5: 
+          1011. Capacity To Ship Packages Within D Days
+          1552. Magnetic Force Between Two Balls
+          1760. Minimum Limit of Balls in a Bag
+          
+          
