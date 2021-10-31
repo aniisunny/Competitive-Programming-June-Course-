@@ -1,0 +1,36 @@
+class Solution {
+
+    private int peakIndexInMountainArray(MountainArray mountainArr) {
+        int start = 0;
+        int end = mountainArr.length() - 1;
+        while (start < end) {
+            int mid = start + (end - start) / 2;
+            if (mountainArr.get(mid) > mountainArr.get(mid + 1)) {
+                end = mid;
+            } else {
+                start = mid + 1;
+            }
+        }
+        return start; // or return end both are equal
+    }
+
+    private int search(MountainArray mountainArr, int target, boolean firstStartIndex, int start, int end) {
+        while (start <= end) {
+            int mid = start + (end - start) / 2;
+            if (target == mountainArr.get(mid)) return mid;
+            if (firstStartIndex) { // here, its simple binary search
+                if (target < mountainArr.get(mid)) end = mid - 1; else start = mid + 1;
+            } else { // here binary search become Order Agnostic Binary Search
+                if (target < mountainArr.get(mid)) start = mid + 1; else end = mid - 1;
+            }
+        }
+        return -1;
+    }
+
+    public int findInMountainArray(int target, MountainArray mountainArr) {
+        int peakIndex = peakIndexInMountainArray(mountainArr);
+        int idx = search(mountainArr, target, true, 0, peakIndex);
+        if (idx == -1) return search(mountainArr, target, false, peakIndex + 1, mountainArr.length() - 1);
+        return idx;
+    }
+}

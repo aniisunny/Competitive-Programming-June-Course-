@@ -1,0 +1,28 @@
+class Solution {
+
+    public void swap(int[] nums, int start, int end) {
+        int temp = nums[start];
+        nums[start] = nums[end];
+        nums[end] = temp;
+    }
+
+    public int firstMissingPositive(int[] arr) {
+        int i = 0;
+        while (i < arr.length) {
+            int correct = arr[i] - 1; // here Range : [1 -----> n]
+            if (arr[i] > 0 && arr[i] < arr.length && arr[i] != arr[correct]) {
+                // allowed only for +ve, not for -ve
+                swap(arr, i, correct);
+            } else {
+                i++; // ingnore -ve values and equal both the value
+            }
+        }
+        for (int index = 0; index < arr.length; index++) {
+            if (arr[index] != index + 1) {
+                return index + 1; // missing element
+            }
+        }
+
+        return arr.length + 1; // if array will be sorted upto end then return arr.length+1
+    }
+}
