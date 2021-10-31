@@ -1,0 +1,46 @@
+Brute Force
+***********
+
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int n = nums.length;
+        for(int i=0 ; i<n-1;i++){
+            for (int j = i+1 ; j<n;j++){
+                if(nums[i] + nums[j] == target ){
+                    return new int[]{i+1,j+1};
+                }
+                
+            }
+        }
+        return new int[2];
+    }
+}
+
+
+**********************************************************
+
+
+
+class Solution {
+    public int[] twoSum(int[] arr, int target) {
+        int[] res = new int[2];
+        int low=0;
+        int high = arr.length-1;
+        while(low<high){
+            if(target-arr[low]==arr[high]){
+                res[0] = low+1;
+                res[1] = high+1;
+                return res;
+            }
+            else if(target-arr[low]>arr[high]){
+               low++;
+            }
+            else{
+                high--;
+            }
+        }
+        
+return res;
+
+    }
+}

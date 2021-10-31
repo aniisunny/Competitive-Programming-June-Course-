@@ -1,0 +1,22 @@
+class Solution {
+
+    private int gcd(int num1, int num2) {
+        while (num1 % num2 != 0) {
+            int temp = num1 % num2;
+            num1 = num2;
+            num2 = temp;
+        }
+        return num2;
+    }
+
+    public int findGCD(int[] nums) {
+        int small = Integer.MAX_VALUE;
+        int large = Integer.MIN_VALUE;
+        for (int i : nums) {
+            small = Math.min(small, i);
+            large = Math.max(large, i);
+        }
+
+        return gcd(small, large);
+    }
+}

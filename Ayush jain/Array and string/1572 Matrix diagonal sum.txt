@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int diagonalSum(vector<vector<int>>& mat) {
+        //Variables to Store diagonal Sum
+		int diag1=0,diag2=0;
+        for(int i=0;i<mat.size();i++){
+			//Left diagonal where  i==j (here, I have kept i=j)
+            diag1+=mat[i][i];
+			//Right Diagonal where i==mat.size()-i-1
+            diag1+=mat[i][mat[0].size()-1-i];
+        }
+		//Check if the we have a common diagonal. If yes, then remove it.
+        if(mat.size()%2!=0){
+            diag1-=mat[mat.size()/2][mat.size()/2];
+        }
+		
+        return diag1;
+    }
+};

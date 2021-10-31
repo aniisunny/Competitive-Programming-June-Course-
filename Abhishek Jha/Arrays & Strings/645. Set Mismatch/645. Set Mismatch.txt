@@ -1,0 +1,28 @@
+class Solution {
+
+    public void swap(int[] nums, int start, int end) {
+        int temp = nums[start];
+        nums[start] = nums[end];
+        nums[end] = temp;
+    }
+
+    public int[] findErrorNums(int[] arr) {
+        int i = 0;
+        while (i < arr.length) {
+            int correct = arr[i] - 1; // here Range : [1 -----> n]
+            if (arr[i] != arr[correct]) {
+                swap(arr, i, correct);
+            } else {
+                i++;
+            }
+        }
+
+        for (int index = 0; index < arr.length; index++) {
+            // here index + 1 represent index value
+            if (arr[index] != index + 1) {
+                return new int[] { arr[index], index + 1 };
+            }
+        }
+        return new int[] { -1, -1 };
+    }
+}
