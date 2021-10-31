@@ -1,0 +1,25 @@
+class Solution {
+
+    public ListNode swapNodes(ListNode head, int k) {
+        if (head == null && head.next == null) return null;
+        ListNode cur = head;
+        int count = 0;
+        while (cur != null) {
+            count++;
+            cur = cur.next;
+        }
+        ListNode temp = head, temp1 = head;
+        // this find startind node at 2
+        for (int i = 1; i < k; i++) {
+            temp1 = temp1.next;
+        }
+        // this find end node from the list
+        for (int i = 0; i < count - k; i++) {
+            temp = temp.next;
+        }
+        int extra = temp.val;
+        temp.val = temp1.val;
+        temp1.val = extra;
+        return head;
+    }
+}

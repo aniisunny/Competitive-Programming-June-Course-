@@ -1,0 +1,22 @@
+class Solution {
+
+    ListNode getNodeAt(ListNode head, int val) {
+        ListNode temp = head;
+        for (int i = 1; i < val; i++) temp = temp.next;
+        return temp;
+    }
+
+    public ListNode reverseBetween(ListNode head, int left1, int right1) {
+        if (head == null && head.next == null) return head;
+        while (left1 <= right1) {
+            ListNode left = getNodeAt(head, left1);
+            ListNode right = getNodeAt(head, right1);
+            int temp = left.val;
+            left.val = right.val;
+            right.val = temp;
+            left1++;
+            right1--;
+        }
+        return head;
+    }
+}
