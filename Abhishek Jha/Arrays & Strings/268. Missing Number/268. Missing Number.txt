@@ -1,0 +1,49 @@
+By using Brute Force
+********************
+class Solution {
+
+    public int missingNumber(int[] nums) {
+        int n = nums.length;
+        if (n == 0 && nums[0] == 0) {
+            return 1;
+        }
+        n = n * (n + 1) / 2;
+        int sum = 0;
+        for (int i = 0; i < nums.length; i++) {
+            sum += nums[i];
+        }
+        return n - sum;
+    }
+
+
+
+
+
+
+By using cyclic sort
+********************
+public static void swap(int[] nums, int start, int end) {
+        int temp = nums[start];
+        nums[start] = nums[end];
+        nums[end] = temp;
+    }
+
+    public static int missingElement(int[] arr) {
+        int i = 0;
+        while (i < arr.length) {
+            int correct = arr[i];
+            if (arr[i] < arr.length && arr[i] != arr[correct]) {
+                swap(arr, i, correct);
+            } else {
+                i++;
+            }
+        }
+
+        for (int index = 0; index < arr.length; index++) {
+            if (index != arr[index]) {
+                return index;
+            }
+       }
+
+        return arr.length;
+    }
