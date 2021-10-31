@@ -35,4 +35,34 @@ Arrays & String:-
           1552. Magnetic Force Between Two Balls
           1760. Minimum Limit of Balls in a Bag
           
+Linked List, Stack, Queue:-          
+          Day 1: 
+              237. Delete Node in a Linked List
+              19. Remove Nth Node From End of List
+              206. Reverse Linked List
+
+
+          Day 2:    
+               1290. Convert Binary Number in a Linked List to Integer
+                237. Delete Node in a Linked List
+                206. Reverse Linked List
+                141. Linked List Cycle
+                142. Linked List Cycle II
+                876. Middle of the Linked List
+                234. Palindrome Linked List
+                
+          Day 3:     
+              
+               19. Remove Nth Node From End of List
+               21. Merge Two Sorted Lists
+               180. Consecutive Numbers
+               2. Add Two Numbers
+               445. Add Two Numbers II
+               
+          Day 4: 
+                
+              20. Valid Parentheses
+              155. Min Stack
+              232. Implement Queue using Stack
+              225. Implement Stack using Queues     
           
