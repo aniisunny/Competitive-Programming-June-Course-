@@ -1,0 +1,45 @@
+class MinStack {
+    int stack[10000];
+    int min[10000];
+    int topptr;
+    int minptr;
+    
+public:
+    MinStack() {
+        topptr = -1;
+        minptr = -1;
+    }
+    
+    void push(int x) {
+        if(topptr>10000) return;
+        stack[++topptr] = x;
+        if(minptr>=0){
+            if(min[minptr]>x){
+                min[++minptr] = x;
+            }
+            else{
+                min[minptr+1]=min[minptr];
+                minptr++;
+            }
+        }
+        else{
+            min[++minptr] = x;
+        }
+    }
+    
+    void pop() {
+        if(topptr < 0)      //Underflow
+            return;
+        
+        topptr -= 1;
+        minptr -= 1;
+    }
+    
+    int top() {
+        return stack[topptr];
+    }
+    
+    int getMin() {
+         return min[minptr];
+    }
+};
