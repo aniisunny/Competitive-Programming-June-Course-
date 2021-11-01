@@ -1,0 +1,51 @@
+Brute Force 
+***********
+
+ public void sortColors(int[] nums) {
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = 1; j < nums.length - i; j++) {
+                if (nums[j] < nums[j - 1]) {
+                    int temp = nums[j];
+                    nums[j] = nums[j - 1];
+                    nums[j - 1] = temp;
+                }
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+class Solution {
+
+    // please read Note
+    public void sortColors(int[] nums) {
+        int low = 0;
+        int mid = 0;
+        int high = nums.length - 1;
+        while (mid <= high) {
+            switch (nums[mid]) {
+                case 0:
+                    int temp = nums[mid];
+                    nums[mid] = nums[low];
+                    nums[low] = temp;
+                    low++;
+                    mid++;
+                    break;
+                case 1:
+                    mid++;
+                    break;
+                case 2:
+                    int temp1 = nums[high];
+                    nums[high] = nums[mid];
+                    nums[mid] = temp1;
+                    high--;
+                    break;
+            }
+        }
+    }
+}

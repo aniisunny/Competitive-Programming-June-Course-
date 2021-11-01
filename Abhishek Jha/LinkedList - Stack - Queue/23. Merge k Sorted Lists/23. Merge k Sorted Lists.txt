@@ -1,0 +1,60 @@
+class Solution {
+
+    static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        if (l1 == null) return l2;
+
+        if (l2 == null) return l1;
+
+        if (l1 == null && l2 == null) return l1;
+
+        ListNode temp = new ListNode(0);
+        ListNode current = temp;
+
+        while (l1 != null && l2 != null) {
+            if (l1.val <= l2.val) {
+                current.next = l1;
+                l1 = l1.next;
+                current = current.next;
+            } else {
+                current.next = l2;
+                l2 = l2.next;
+                current = current.next;
+            }
+        }
+
+        if (l1 != null) current.next = l1;
+
+        if (l2 != null) current.next = l2;
+
+        return temp.next;
+    }
+
+    public ListNode mergeKLists(ListNode[] lists) {
+        if (lists.length == 0) return null;
+
+        if (lists.length == 1) return lists[0];
+
+        ArrayList<ListNode> al = new ArrayList<>();
+
+        if (lists.length % 2 == 0) {
+            for (int i = 0; i < lists.length - 1; i += 2) al.add(mergeTwoLists(lists[i], lists[i + 1]));
+        }
+
+        if (lists.length % 2 != 0) {
+            for (int i = 0; i < lists.length - 1; i += 2) {
+                al.add(mergeTwoLists(lists[i], lists[i + 1]));
+            }
+            al.add(lists[lists.length - 1]);
+        }
+
+        if (al.size() == 1) return al.get(0);
+
+        while (al.size() != 1) {
+            ListNode list1 = al.remove(0);
+            ListNode list2 = al.remove(0);
+            ListNode list3 = mergeTwoLists(list1, list2);
+            al.add(list3);
+        }
+        return al.get(0);
+    }
+}
