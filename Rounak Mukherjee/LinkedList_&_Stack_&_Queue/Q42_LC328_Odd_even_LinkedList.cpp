@@ -2,9 +2,9 @@
 class Solution {
 public:
     ListNode* oddEvenList(ListNode* head) {
-       class Solution {
-
-        if(!head || !head->next) return head;
+         if(!head || !head->next) return head;
+        
+        
         ListNode* temp1 = head, *temp2 = head->next;
         ListNode* temp=temp2;
         while(temp2 && temp2->next!=nullptr){
