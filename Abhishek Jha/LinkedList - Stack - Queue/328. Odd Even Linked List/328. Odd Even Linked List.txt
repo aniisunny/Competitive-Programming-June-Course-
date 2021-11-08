@@ -1,0 +1,28 @@
+class Solution {
+
+    public ListNode oddEvenList(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode odd = new ListNode(0);
+        ListNode even = new ListNode(0);
+        ListNode oddHelp = odd;
+        ListNode evenHelp = even;
+        ListNode curr = head;
+        int indices = 1;
+        while (curr != null) {
+            if (indices % 2 != 0) {
+                oddHelp.next = curr;
+                oddHelp = oddHelp.next;
+            } else {
+                evenHelp.next = curr;
+                evenHelp = evenHelp.next;
+            }
+            indices++;
+            curr = curr.next;
+        }
+        oddHelp.next = even.next;
+        evenHelp.next = null;
+        return odd.next;
+    }
+}

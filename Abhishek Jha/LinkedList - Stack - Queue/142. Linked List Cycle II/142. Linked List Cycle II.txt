@@ -1,0 +1,25 @@
+public class Solution {
+
+    public ListNode detectCycle(ListNode head) {
+        if (head == null || head.next == null) return null;
+        ListNode slow = head, fast = head;
+        while (fast != null && fast.next != null) { //  1 ---> ishme koi loop hi nhi hai
+            fast = fast.next.next;
+            slow = slow.next;
+            if (slow == fast) break; // 2 ---> ishme loop hai
+        }
+
+        // ishme two's condition ke through apan while loop ke bhahar aarhe hai like 1 & 2
+
+        // idhar check ho rha hai ki kis condition se bahahr aarhe hai apan
+        if (fast == null || fast.next == null) return null;
+
+        slow = head;
+
+        while (slow != fast) {
+            slow = slow.next;
+            fast = fast.next;
+        }
+        return slow;
+    }
+}

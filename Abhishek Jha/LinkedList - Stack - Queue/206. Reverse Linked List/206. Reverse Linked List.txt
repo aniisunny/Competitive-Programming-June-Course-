@@ -1,0 +1,21 @@
+class Solution {
+
+    // Iterate Method for reverse
+    // ListNode cur = head, prev = null, nxt;
+    // while (cur != null) {
+    // nxt = cur.next;
+    // cur.next = prev;
+    // prev = cur;
+    // cur = nxt;
+    // }
+    // return prev;
+
+    // Recursively Method Solution
+    public ListNode reverseList(ListNode head) {
+        if (head == null || head.next == null) return head;
+        ListNode smallHead = reverseList(head.next);
+        head.next.next = head;
+        head.next = null;
+        return smallHead;
+    }
+}
