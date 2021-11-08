@@ -1,0 +1,55 @@
+class Solution {
+
+    private int findPivot(int[] arr) {
+        int start = 0;
+        int end = arr.length - 1;
+        while (start <= end) {
+            int mid = start + (end - start) / 2;
+            if (mid < end && arr[mid] > arr[mid + 1]) {
+                return mid; // check pivot for right side because mid is greater
+            }
+            if (mid > start && arr[mid] < arr[mid - 1]) {
+                return mid - 1; // check pivot for left side because mid -1 is greater
+            }
+            if (arr[mid] == arr[start] || arr[mid] == arr[end]) {
+                // this condition check for start is pivot or not.
+                if (start < end && arr[start] > arr[start + 1]) {
+                    return start;
+                }
+                start++;
+                if (end > start && arr[end] < arr[end - 1]) {
+                    return end - 1;
+                }
+                end--;
+            } else if (arr[start] < arr[mid] || arr[start] == arr[mid] && arr[mid] > arr[end]) {
+                start = mid + 1;
+            } else {
+                end = mid - 1;
+            }
+        }
+        return -1;
+    }
+
+    public boolean bSsearch(int[] nums, int target, int start, int end) {
+        while (start <= end) {
+            int mid = (start + end) / 2;
+            if (nums[mid] > target) {
+                end = mid - 1;
+            } else if (nums[mid] < target) {
+                start = mid + 1;
+            } else {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean search(int[] nums, int target) {
+        int pivot = findPivot(nums);
+        boolean leftBS = bSsearch(nums, target, 0, pivot);
+        if (leftBS == false) {
+            return bSsearch(nums, target, pivot + 1, nums.length - 1);
+        }
+        return leftBS;
+    }
+}

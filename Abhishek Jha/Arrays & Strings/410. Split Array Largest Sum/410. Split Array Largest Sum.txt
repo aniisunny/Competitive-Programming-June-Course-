@@ -1,0 +1,32 @@
+class Solution {
+
+    public int splitArray(int[] nums, int m) {
+        int start = 0;
+        int end = 0;
+        for (int i = 0; i < nums.length; i++) {
+            start = Math.max(start, nums[i]); // if subarray (m) is 1, finding max element for array.
+            end += nums[i]; // sum of  whole array
+        }
+        while (start <= end) {
+            int sum = 0;
+            int peices = 1;
+            int mid = start + (end - start) / 2;
+            for (int num : nums) {
+                if (sum + num > mid) { // for create new one array peice
+                    sum = num;
+                    peices++;
+                } else {
+                    sum += num; // for array sum only
+                }
+            }
+            // Simple Binary Search
+            if (peices > m) {
+                start = mid + 1;
+            } else {
+                end = mid-1;
+            }
+        }
+
+        return start; // or use end here
+    }
+}
