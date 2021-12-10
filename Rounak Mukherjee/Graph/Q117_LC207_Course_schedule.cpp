@@ -1,40 +1,28 @@
 class Solution {
 public:
-    bool canFinish(int numCourses, vector<pair<int, int>>& prerequisites) {
-        graph g = buildGraph(numCourses, prerequisites);
-        vector<bool> todo(numCourses, false), done(numCourses, false);
-        for (int i = 0; i < numCourses; i++) {
-            if (!done[i] && !acyclic(g, todo, done, i)) {
-                return false;
-            }
-        }
-        return true;
-    }
-private:
-    typedef vector<vector<int>> graph;
-    
-    graph buildGraph(int numCourses, vector<pair<int, int>>& prerequisites) {
-        graph g(numCourses);
-        for (auto p : prerequisites) {
-            g[p.second].push_back(p.first);
-        }
-        return g;
-    }
-    
-    bool acyclic(graph& g, vector<bool>& todo, vector<bool>& done, int node) {
-        if (todo[node]) {
-            return false;
-        }
-        if (done[node]) {
+  bool iscycle(vector<int> adj[],vector<int> &vis,int id){
+        if(vis[id]==1)
             return true;
-        }
-        todo[node] = done[node] = true;
-        for (int v : g[node]) {
-            if (!acyclic(g, todo, done, v)) {
-                return false;
+        if(vis[id]==0){
+            vis[id]=1;
+            for(auto edge : adj[id]){
+                if(iscycle(adj,vis,edge))
+                    return true;
             }
         }
-        todo[node] = false;
+        vis[id] = 2;
+        return false;
+    }
+    bool canFinish(int n, vector<vector<int>>& pre) {
+        vector<int> adj[n];
+        for(auto edge : pre)
+            adj[edge[1]].push_back(edge[0]);
+        vector<int> vis(n,0);
+        
+        for(int i=0;i<n;i++){
+            if(iscycle(adj,vis,i))
+                return false;
+        }
         return true;
     }
 };
