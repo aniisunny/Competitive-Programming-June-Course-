@@ -1,4 +1,4 @@
-
+/*CodeStudio*/
 /* Insert, Erase, countswordstartwith, conutswordequalto */
 //here each node have a prefix_count and word_count which is end with 0(0- means not end) instead of flag;
 struct N{
