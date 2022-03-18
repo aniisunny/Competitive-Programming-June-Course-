@@ -14,7 +14,7 @@ public:
     {
         Node *curr=root;
         for(auto it:s){
-            int ind=it-'A';
+            int ind=(int)it;
             if(curr->link[ind]){
                 curr=curr->link[ind];
             }else{
@@ -29,7 +29,7 @@ public:
     
     
     void solve(vector<vector<char>>& board, Node *node, int i, int j, int r, int c,string &ans){
-        int ind=board[i][j]-'A';
+        int ind=(int)board[i][j];
         if(board[i][j]=='$' || node->link[ind]==NULL){return;}
         
         node=node->link[ind];
@@ -54,11 +54,13 @@ public:
     }
     bool exist(vector<vector<char>>& board, string word) {
         insert(word);
-        
         Node *node=root;
         int r=board.size();
         int c=board[0].size();
         string ans="";
+       
+        
+        
         for(int i=0;i<r;i++){
             for(int j=0;j<c;j++){
                 solve(board,node,i,j,r,c,ans);
@@ -73,5 +75,3 @@ public:
         return true;
     }
 };
-
-//Work if there is only one type of latters
