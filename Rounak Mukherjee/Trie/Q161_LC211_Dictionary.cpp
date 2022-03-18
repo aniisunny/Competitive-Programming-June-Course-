@@ -34,7 +34,7 @@ public:
         return searchHelper(word, 0, root);
     }
     
-    bool searchHelper(string word, int index, Node* curV) {
+    bool searchHelper(const string &word, int index, Node* curV) { //for big strings
         // BASE CASE
         if (index == word.length()) {
             return curV->flag;
