@@ -73,3 +73,5 @@ public:
         return true;
     }
 };
+
+//Work if there is only one type of latters
