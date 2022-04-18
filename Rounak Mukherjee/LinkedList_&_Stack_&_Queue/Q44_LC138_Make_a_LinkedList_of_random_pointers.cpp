@@ -17,9 +17,9 @@ public:
           cur=cur->next->next;
       }  
         
-      Node *dummy=new Node(-1);
-      dummy->next=head->next;
-      Node *itr=dummy->next ; 
+      
+      Node* head2=head->next;
+      Node *itr=head2 ; 
       cur=head;
       while(cur!=NULL){
         front=cur->next->next;
@@ -34,6 +34,6 @@ public:
         itr=itr->next;  
       }  
         
-        return dummy->next;
+        return head2;
     }
 };
