@@ -1,40 +1,43 @@
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
 class Solution {
 public:
-    void rev(ListNode* s,ListNode* e){
-        ListNode *pre=NULL,*cur=s,*nex=cur->next;
-        while(pre!=e){
-           
-            cur->next=pre;
-            pre=cur;
-            cur=nex;
-            if(nex!=NULL){nex=nex->next;}
-        }
-    }
     ListNode* reverseKGroup(ListNode* head, int k) {
-        if(head==NULL||head->next==NULL||k==1){return head;}
+        if(head==NULL || k==1)return head;
         
-        ListNode *dum=new ListNode(-2);
-        dum->next=head;
-        ListNode *bhead=dum;
+        ListNode *dummy=new ListNode(-1);
+        dummy->next=head;
         
-        ListNode *e=head;
+        ListNode *cur=dummy, *pre=dummy, *nex=dummy;
         
-        int i=0;
-        while(e!=NULL){
-            i++;
-            if(i%k==0){
-                ListNode *s=bhead->next;
-                ListNode *temp=e->next;
-                rev(s,e);
-                bhead->next=e;
-                s->next=temp;
-                bhead=s;
-                e=temp;
-            }
-            else{
-                e=e->next;
-            }
+        int count=0;
+        ListNode* c=head;
+        while(c!=NULL){
+           
+            count++;
+           c=c->next;
         }
-        return dum->next;
+        
+        while(count>=k){
+            cur=pre->next;
+            nex=cur->next;
+            for(int i=1;i<k;i++){
+                cur->next=nex->next;
+                nex->next=pre->next;
+                pre->next=nex;
+                nex=cur->next;
+            }
+            pre=cur;
+            count-=k;
+        }
+        return dummy->next;
     }
 };
