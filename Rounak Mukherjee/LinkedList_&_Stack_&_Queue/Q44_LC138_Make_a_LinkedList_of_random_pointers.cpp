@@ -2,48 +2,38 @@ class Solution {
 public:
     Node* copyRandomList(Node* head) {
         if(head==NULL){return head;}
-        Node *iter = head; 
-          Node *front = head;
-
-          // First round: make copy of each node,
-          // and link them together side-by-side in a single list.
-          while (iter != NULL) {
-            front = iter->next;
-
-            Node *copy = new Node(iter->val);
-            iter->next = copy;
-            copy->next = front;
-
-            iter = front;
+      Node *cur=head,*front=NULL;
+      while(cur!=NULL){
+          front=cur->next;
+          cur->next=new Node(cur->val);
+          cur->next->next=front;
+          cur=front;
+      } 
+      
+      cur=head;
+      while(cur!=NULL){
+          if(cur->random!=NULL)
+          {cur->next->random=cur->random->next;}
+          cur=cur->next->next;
+      }  
+        
+      Node *dummy=new Node(-1);
+      dummy->next=head->next;
+      Node *itr=dummy->next ; 
+      cur=head;
+      while(cur!=NULL){
+        front=cur->next->next;
+        cur->next=front;
+          if(front!=NULL){
+        itr->next=front->next;       
+          }else{
+              itr->next=NULL;
           }
-
-          // Second round: assign random pointers for the copy nodes.
-          iter = head;
-          while (iter != NULL) {
-            if (iter->random != NULL) {
-              iter->next->random = iter->random->next;
-            }
-            iter = iter->next->next;
-          }
-
-          // Third round: restore the original list, and extract the copy list.
-          iter = head;
-          Node *pseudoHead = new Node(0);
-          Node *copy = pseudoHead;
-
-          while (iter != NULL) {
-            front = iter->next->next;
-
-            // extract the copy
-            copy->next = iter->next;
-
-            // restore the original list
-            iter->next = front;
-              
-            copy = copy -> next; 
-            iter = front;
-          }
-
-          return pseudoHead->next;
+       
+        cur=front;
+        itr=itr->next;  
+      }  
+        
+        return dummy->next;
     }
 };
